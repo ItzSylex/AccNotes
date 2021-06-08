@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter.font import Font
+import pyperclip
 
 
 class AccNotes():
@@ -23,7 +24,7 @@ class AccNotes():
         )
 
         self.canvas = Canvas(
-            self.window, bg = "#ffffff", height = 480, width = 340,
+            self.window, bg = "white", height = 480, width = 340,
             bd = 0, highlightthickness = 0, relief = "ridge"
         )
         self.canvas.place(x = 0, y = 0)
@@ -47,9 +48,23 @@ class AccNotes():
         self.create_text()
 
     def copy_button(self):
-        pass
+        note = ""
 
-        # Loop tru self.entry_list and use the get() method
+        for i, entry in enumerate(self.entry_list):
+            content = entry.get(1.0, END)
+
+            if i == 0:
+                note = note + f"Claim: {content.strip()} \n"
+                entry.delete(1.0, END)
+
+            elif i == 1:
+                note = note + f"Resolution/issue: {content.strip()} \n"
+                entry.delete(1.0, END)
+
+            else:
+                note = note + f"By: {content.strip()}"
+
+        pyperclip.copy(note)
 
     def create_text(self):
 
@@ -62,8 +77,8 @@ class AccNotes():
         for i, (name, details) in enumerate(entry_details.items()):
             name = Text(
                 bd = 0, bg = "#5E3E71", highlightthickness = 0,
-                insertbackground = '#ffffff', fg = "#979797",
-                font = "Montserrat 10", pady = 6
+                insertbackground = 'white', fg = "#E8E8E8",
+                font = "Montserrat 10", pady = 6, selectbackground = "#4C335B",
             )
 
             name.place(
