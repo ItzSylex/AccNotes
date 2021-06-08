@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter.font import Font
 
 
 class AccNotes():
@@ -15,9 +16,14 @@ class AccNotes():
         self.button_img = PhotoImage(file = f"imgs/copy_button.png")
         self.small_entry_img = PhotoImage(file = f"imgs/small_entry.png")
         self.big_entry_img = PhotoImage(file = f"imgs/big_entry.png")
+        self.font = Font(
+            family = "Arial Rounded MT Bold",
+            size = 38,
+            weight = "bold",
+        )
 
         self.canvas = Canvas(
-            self.window, bg = "#151515", height = 480, width = 340,
+            self.window, bg = "#ffffff", height = 480, width = 340,
             bd = 0, highlightthickness = 0, relief = "ridge"
         )
         self.canvas.place(x = 0, y = 0)
@@ -28,35 +34,34 @@ class AccNotes():
         )
 
         self.copy_button.place(
-            x = 35, y = 429,
-            width = 270, height = 29
+            x = 35, y = 384,
+            width = 270, height = 52
         )
 
         self.canvas.create_text(
-            170.0, 55.0,
+            170.0, 60.0,
             text = "AccNotes",
-            fill = "#ffffff",
-            font = 'Montserrat 38 bold')
+            fill = "#262626",
+            font = self.font)
 
-        self.create_entry()
+        self.create_text()
 
     def copy_button(self):
         pass
 
         # Loop tru self.entry_list and use the get() method
 
-    def create_entry(self):
+    def create_text(self):
 
         entry_details = {
-            "claim": [152, 27, 166.5],
-            "issue": [193, 82, 235],
-            "name": [387, 27, 401.5],
-            "resolution": [290, 82, 332]
+            "claim": [107, 27, 121.5],
+            "issue": [148, 182, 240],
+            "name": [342, 27, 356.5]
         }
 
         for i, (name, details) in enumerate(entry_details.items()):
             name = Text(
-                bd = 0, bg = "#343c50", highlightthickness = 0,
+                bd = 0, bg = "#5E3E71", highlightthickness = 0,
                 insertbackground = '#ffffff', fg = "#979797",
                 font = "Montserrat 10", pady = 6
             )
