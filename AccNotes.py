@@ -10,6 +10,7 @@ class AccNotes():
         self.window.geometry("340x480")
         self.window.title("")
         self.window.resizable(False, False)
+        self.window.iconbitmap(f"imgs/ico_file.ico")
 
         self.click = True
         self.entry_list = []
