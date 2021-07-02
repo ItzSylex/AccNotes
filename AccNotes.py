@@ -12,7 +12,6 @@ class AccNotes():
         self.window.resizable(False, False)
         self.window.iconbitmap(f"imgs/ico_file.ico")
 
-        self.click = True
         self.entry_list = []
 
         self.button_img = PhotoImage(file = f"imgs/copy_button.png")
