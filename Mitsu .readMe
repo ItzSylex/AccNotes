@@ -1,0 +1,2 @@
+msg=input("Córtese el pelo :) ")  
+print(msg)  
